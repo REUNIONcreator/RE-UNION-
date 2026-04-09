@@ -1,0 +1,5 @@
+print("Dear [BLACKED OUT],")
+print()
+print("I hope this letter finds you well. My name is Lyra, and I have something important to tell you...")
+print()
+print("(This is just the start of the letter as requested.)")

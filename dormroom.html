@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dorm Room - RE-UNION ARG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .diary {
+            background-color: #fdfd96;
+        }
+        .phone {
+            background-color: #e0e0e0;
+        }
+        .email {
+            background-color: #d0f0d0;
+        }
+        .puzzle {
+            background-color: #ffe0e0;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sent {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .received {
+            background-color: #f1f1f1;
+        }
+        .image-puzzle {
+            text-align: center;
+        }
+        .image-puzzle img {
+            max-width: 100%;
+            height: auto;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lyra's Dorm Room</h1>
+    <p>You've entered Lyra's dorm room. Explore the items for clues.</p>
+
+    <div class="section diary">
+        <h2>Lyra's Diary</h2>
+        <p><strong>Entry 1:</strong> The reunion is coming up. I wonder if he'll be there. The one who watches.</p>
+        <p><strong>Entry 2:</strong> I feel like I'm being followed. Everywhere I go, eyes on me.</p>
+        <p><strong>Entry 3:</strong> Last night, I saw something in the shadows. "I am watching." What does it mean?</p>
+        <p><strong>Entry 4:</strong> The high school holds secrets. The locker... I need to check it.</p>
+    </div>
+
+    <div class="section phone">
+        <h2>Lyra's Phone Messages</h2>
+        <div class="message received">
+            <strong>Friend:</strong> Hey Lyra, see you at the reunion? It's going to be wild!
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> Yeah, can't wait. But I'm a bit nervous.
+        </div>
+        <div class="message received">
+            <strong>Friend:</strong> Why? Old crushes?
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> Something like that. And... other things.
+        </div>
+        <div class="message received">
+            <strong>Unknown:</strong> I am watching you.
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> Who is this?
+        </div>
+        <div class="message received">
+            <strong>Unknown:</strong> The reunion will reveal all.
+        </div>
+    </div>
+
+    <div class="section email">
+        <h2>Parent Email Chat</h2>
+        <div class="message received">
+            <strong>Mom:</strong> Hi sweetie, how are you? Excited for the reunion?
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> Hi Mom. Yeah, a little. But I've been feeling off.
+        </div>
+        <div class="message received">
+            <strong>Mom:</strong> Off? What do you mean?
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> Like someone's watching me. I got a weird message.
+        </div>
+        <div class="message received">
+            <strong>Mom:</strong> That's scary. Be careful at the reunion. Call me if anything.
+        </div>
+        <div class="message sent">
+            <strong>Lyra:</strong> I will. Love you.
+        </div>
+        <div class="message received">
+            <strong>Dad:</strong> Hey kiddo. Your mom told me. Stay safe. The past can be dangerous.
+        </div>
+    </div>
+
+    <div class="section puzzle">
+        <h2>Image-Based Puzzle</h2>
+        <p>Look at this photo from the reunion. Find the hidden message.</p>
+        <div class="image-puzzle">
+            <!-- Placeholder for image; in a real ARG, replace with actual image -->
+            <div style="width: 400px; height: 300px; background-color: #ccc; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #666;">
+                [Reunion Photo Placeholder]<br>Hidden: "The watcher is close"
+            </div>
+            <p>Hint: Zoom in or look closely. The message is "The watcher is close".</p>
+            <button id="reveal">Reveal Hidden Message</button>
+            <p id="hidden-message" class="hidden">The watcher is close. Check the shadows.</p>
+        </div>
+    </div>
+
+    <div class="section voice-recording">
+        <h2>Voice Recording</h2>
+        <p>Found on Lyra's phone: A recording of M talking to an unknown person.</p>
+        <audio controls>
+            <source src="voice-recording.mp3" type="audio/mpeg">
+            Your browser does not support the audio element. [Placeholder: Replace with actual audio file]
+        </audio>
+        <p><strong>Transcript:</strong></p>
+        <div class="message received">
+            <strong>M:</strong> I don't know what to do about Lyra. She's acting so strange lately.
+        </div>
+        <div class="message received">
+            <strong>Unknown:</strong> Strange how?
+        </div>
+        <div class="message received">
+            <strong>M:</strong> Like she's paranoid. Keeps saying someone's watching her. And she mentioned "IT" – whatever that is.
+        </div>
+        <div class="message received">
+            <strong>Unknown:</strong> IT? You mean the old legend? The watcher from the reunion?
+        </div>
+        <div class="message received">
+            <strong>M:</strong> Yeah, maybe. She went missing after the reunion prep. I think IT got her.
+        </div>
+        <div class="message received">
+            <strong>Unknown:</strong> Be careful, M. IT might be watching you too.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reveal').addEventListener('click', () => {
+            document.getElementById('hidden-message').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
