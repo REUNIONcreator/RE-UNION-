@@ -8,30 +8,46 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #000;
+            color: #fff;
         }
         .intro {
             padding: 20px;
             text-align: center;
+            background-color: #111;
+            color: #f00;
+            animation: flicker 2s infinite alternate;
         }
         .password-section {
             padding: 20px;
             text-align: center;
+            background-color: #222;
+            color: #f00;
         }
         canvas {
-            border: 1px solid #000;
+            border: 1px solid #f00;
             display: none;
+            background-color: #000;
         }
         .hidden {
             display: none;
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
     <div class="intro">
         <h1>High School Archives</h1>
-        <p>Welcome to the digital archives of the old high school. Explore the mysteries within.</p>
+        <p>Welcome to the digital archives of the old high school. Explore the mysteries within... if you dare.</p>
+        <p>You feel like you're being watched.</p>
     </div>
+    <audio autoplay loop>
+        <source src="eerie-background.mp3" type="audio/mpeg">
+        <!-- Placeholder: Add eerie background music file -->
+    </audio>
     <div class="password-section">
         <h2>Enter Password to Access Locked Content</h2>
         <input type="password" id="password" placeholder="Enter password">
@@ -42,13 +58,12 @@
     <div id="content" style="display: none; margin-top: 20px; font-family: Arial;">
         <h2>Letter from Lyra:</h2>
         <p>Dear [BLACKED OUT],</p>
-        <p>I hope this letter finds you <b>w</b>ell. My name is <b>L</b>yra, and I have something important to tell you...</p>
-        <p>(This is just the start of the letter as requested.)</p>
+        <p>I hope this letter finds you <b>w</b>ell. My name is <b>L</b>yra, and I have something important to tell you... but I'm scared. The shadows are closing in.</p>
+        <p>(This is just the start of the letter as requested. The rest is lost in the darkness.)</p>
         <h2>Newsletter: Missing Girl</h2>
-        <p><b>L</b>ocal girl Lyra has gone missing. <b>L</b>ast seen at the high school reunion.</p>
-        <p>Authorities are investigating. If you have information, contact the police.</p>
+        <p><b>L</b>ocal girl Lyra has gone missing. <b>L</b>ast seen at the high school reunion. Authorities are investigating. If you have information, contact the police... before it's too late.</p>
         <h2>Newsletter: Reunion</h2>
-        <p>The 10-year high school reunion is approaching. <b>V</b>aluable memories of the past will resurface. <b>Z</b>est for life, <b>D</b>reams await. <b>W</b>e invite you to join us for nostalgia and new beginnings. <b>F</b>un times, <b>K</b>indred spirits, <b>L</b>aughter, <b>Q</b>uestions answered, <b>J</b>oyful reunions.</p>
+        <p>The 10-year high school reunion is approaching. <b>V</b>aluable memories of the past will resurface. <b>Z</b>est for life, <b>D</b>reams await. <b>W</b>e invite you to join us for nostalgia and new beginnings. <b>F</b>un times, <b>K</b>indred spirits, <b>L</b>aughter, <b>Q</b>uestions answered, <b>J</b>oyful reunions. But beware... the watcher is among us.</p>
     </div>
     <script>
         const canvas = document.getElementById('canvas');
@@ -72,19 +87,22 @@
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             // Draw background
-            ctx.fillStyle = '#87CEEB';
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Draw shadows or eerie elements
+            ctx.fillStyle = 'rgba(255, 0, 0, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             // Draw locker
-            ctx.fillStyle = 'brown';
+            ctx.fillStyle = '#800';
             ctx.fillRect(locker.x, locker.y, locker.width, locker.height);
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = '#f00';
             ctx.font = '12px Arial';
             ctx.fillText('Locker', locker.x + 10, locker.y + 50);
             // Draw player
-            ctx.fillStyle = 'blue';
+            ctx.fillStyle = '#f00';
             ctx.fillRect(player.x - player.width / 2, player.y - player.height / 2, player.width, player.height);
             // Draw text
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = '#f00';
             ctx.font = '20px Arial';
             ctx.fillText('High School Scene', 10, 30);
             ctx.fillText('Use W/A/S/D to run, Space to crouch, Shift to sprint', 10, 60);
@@ -128,7 +146,7 @@
                 let dx = player.x - (locker.x + locker.width / 2);
                 let dy = player.y - (locker.y + locker.height / 2);
                 let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
+                if (distance < 200) {
                     let code = prompt("Enter locker code:");
                     if (code === "LW LV ZDWFKLQJ") {
                         alert("Locker opened: I am watching. Check Lyra's dorm room for more clues.");
